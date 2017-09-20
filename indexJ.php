@@ -58,14 +58,6 @@
         }
         
         
-        function printDeck($deck) {
-            for ($i = 0; $i < count($deck); $i++) {
-                $cardNum = $deck[$i]; // number between 0 and 51
-                $card = mapNumberToCard($cardNum); 
-                echo "imgURL: ".$card["imgURL"]."<br>"; 
-            }
-        }
-        
         
                function calculateHandValue($cards) {
                 $sum = 0; 
@@ -78,6 +70,8 @@
             }
             
         // Return a specific number of cards
+        
+        // function that generates a "hand" of cards for one person (no duplicates)
         function generateHand($deck) {
             $hand = array(); 
             
@@ -91,21 +85,72 @@
         }
         
         $deck = generateDeck(); 
-        //printDeck($deck); 
         
-        
-        
-        // function that generates a "hand" of cards for one person (no duplicates)
-        
-        
+         function players() {
+            $playerPic = rand(1,13); 
+            $playerName = ""; 
+            $randName = rand(1,13);
             
-        $person = array(
-            "name" => "Butters", 
-            "profilePicUrl" => "./profile_pics/butters.png", 
+            switch($randName) {
+                case 0: 
+                    $playerName = "Butters"; 
+                    break; 
+                case 1: 
+                    $playerName = "Professor Chaos"; 
+                    break; 
+                case 2: 
+                    $playerName = "Ike"; 
+                    break; 
+                case 3: 
+                    $playerName = "Jesus"; 
+                    break; 
+                case 4: 
+                    $playerName = "Bebe"; 
+                    break; 
+                case 5: 
+                    $playerName = "Pete"; 
+                    break; 
+                case 6:
+                    $playerName = "Cartman"; 
+                    break; 
+                case 7:
+                    $playerName = "Jimmy"; 
+                    break; 
+                case 8:
+                    $playerName = "Kenny"; 
+                    break; 
+                case 9:
+                    $playerName = "Kyle"; 
+                    break; 
+                case 10:
+                    $playerName = "Stan"; 
+                    break; 
+                case 11:
+                    $playerName = "Randy"; 
+                    break; 
+                case 12:
+                    $playerName = "Santa"; 
+                    break; 
+                
+            }
+
+            $profile = array(
+                'name' => $playerName, 
+                'imgURL' => "./profile_pics/".$playerPic.".png"
+                ); 
+            
+            return $profile; 
+        }
+        
+   
+         $p1=players();
+         $person = array(
+            "name" => $p1["name"], 
+            "profilePicUrl" => $p1["imgURL"], 
             "cards" => generateHand($deck)
             ); 
-                
             
+            const linebreak = "<br/>";
             
             function displayPerson($person) {
                 // show profile pic
@@ -123,7 +168,8 @@
                     echo "<img src='".$card["imgURL"]."'>"; 
                 }
                 
-                echo calculateHandValue($person["cards"]); 
+                echo calculateHandValue($person["cards"]);
+                echo  linebreak, $person["name"];
             }
             
             
