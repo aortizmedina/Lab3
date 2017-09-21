@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-    </head>
+      <head>
+		<meta charset="utf-8" />
+		<title> SilverJack </title>
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+	</head>
     <body>
         
         <?php 
@@ -142,14 +144,16 @@
             return $profile; 
         }
         
-   
-         $p1=players();
-         $person = array(
-            "name" => $p1["name"], 
-            "profilePicUrl" => $p1["imgURL"], 
-            "cards" => generateHand($deck)
+        for($i=0;$i<4;$i++)
+        {
+         $p["$i"]=players();
+         $person["$i"] = array(
+            "name" => $p["$i"]["name"], 
+            "profilePicUrl" => $p["$i"]["imgURL"], 
+            "cards" => $p["$i"]generateHand($deck)
             ); 
-            
+             displayPerson($person["$i"]); 
+        }
             const linebreak = "<br/>";
             
             function displayPerson($person) {
@@ -174,7 +178,7 @@
             
             
             
-            displayPerson($person); 
+            
             
             
         
