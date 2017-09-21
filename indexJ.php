@@ -8,7 +8,7 @@
     <body>
         
         <?php 
-        
+         global $deck;
         // Generate a deck of cards 
         // [0, 1, 2, ..., 51]
         // map each number to a card 
@@ -74,9 +74,9 @@
         // Return a specific number of cards
         
         // function that generates a "hand" of cards for one person (no duplicates)
-        function generateHand($deck) {
+        function generateHand() {
             $hand = array(); 
-            
+             global $deck;
           do {
                 $cardNum = array_pop($deck);
                 $card = mapNumberToCard($cardNum); 
