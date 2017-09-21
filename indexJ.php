@@ -64,7 +64,7 @@
                function calculateHandValue($cards) {
                 $sum = 0; 
                 
-                foreach ($cards as $card) {
+                foreach ($cards as $card) { // code gives me an error here!!
                     $sum += $card["num"]; 
                 }
                 
@@ -150,7 +150,7 @@
          $person["$i"] = array(
             "name" => $p["$i"]["name"], 
             "profilePicUrl" => $p["$i"]["imgURL"], 
-            "cards" => $p["$i"]generateHand($deck)
+            "cards" => generateHand($deck)
             ); 
              displayPerson($person["$i"]); 
         }
