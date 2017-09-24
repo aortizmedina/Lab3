@@ -150,11 +150,11 @@
          $person["$i"] = array(
             "name" => $p["$i"]["name"], 
             "profilePicUrl" => $p["$i"]["imgURL"], 
-            "cards" => $p["$i"]generateHand($deck)
+            "cards" => generateHand($deck)
             ); 
              displayPerson($person["$i"]); 
         }
-            const linebreak = "<br/>";
+            //const linebreak = "<br/>";
             
             function displayPerson($person) {
                 // show profile pic
@@ -173,7 +173,7 @@
                 }
                 
                 echo calculateHandValue($person["cards"]);
-                echo  linebreak, $person["name"];
+                echo $person["name"].'<br>';
             }
             
             
