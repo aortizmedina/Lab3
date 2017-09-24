@@ -91,46 +91,45 @@
          function players() {
             $playerPic = rand(1,13); 
             $playerName = ""; 
-            $randName = rand(1,13);
             
-            switch($randName) {
-                case 0: 
+            switch($playerPic) {
+                case 1: 
                     $playerName = "Butters"; 
                     break; 
-                case 1: 
+                case 2: 
                     $playerName = "Professor Chaos"; 
                     break; 
-                case 2: 
+                case 3: 
                     $playerName = "Ike"; 
                     break; 
-                case 3: 
+                case 4: 
                     $playerName = "Jesus"; 
                     break; 
-                case 4: 
+                case 5: 
                     $playerName = "Bebe"; 
                     break; 
-                case 5: 
+                case 6: 
                     $playerName = "Pete"; 
                     break; 
-                case 6:
+                case 7:
                     $playerName = "Cartman"; 
                     break; 
-                case 7:
+                case 8:
                     $playerName = "Jimmy"; 
                     break; 
-                case 8:
+                case 9:
                     $playerName = "Kenny"; 
                     break; 
-                case 9:
+                case 10:
                     $playerName = "Kyle"; 
                     break; 
-                case 10:
+                case 11:
                     $playerName = "Stan"; 
                     break; 
-                case 11:
+                case 12:
                     $playerName = "Randy"; 
                     break; 
-                case 12:
+                case 13:
                     $playerName = "Santa"; 
                     break; 
                 
