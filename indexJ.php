@@ -8,6 +8,7 @@
     <body>
         
         <?php 
+         global $deck;
         
         // Generate a deck of cards 
         // [0, 1, 2, ..., 51]
@@ -64,19 +65,21 @@
                function calculateHandValue($cards) {
                 $sum = 0; 
                 
-                foreach ($cards as $card) {
+                foreach ($cards as $card) { // code gives me an error here!!
                     $sum += $card["num"]; 
                 }
                 
                 return $sum; 
             }
+               
+           
             
         // Return a specific number of cards
         
         // function that generates a "hand" of cards for one person (no duplicates)
-        function generateHand($deck) {
+        function generateHand() {
             $hand = array(); 
-            
+             global $deck;
           do {
                 $cardNum = array_pop($deck);
                 $card = mapNumberToCard($cardNum); 
@@ -144,7 +147,7 @@
             return $profile; 
         }
         
-        for($i=0;$i<4;$i++)
+        for($i=1;$i<5;$i++)
         {
          $p["$i"]=players();
          $person["$i"] = array(
@@ -176,6 +179,85 @@
                 echo $person["name"].'<br>';
             }
             
+            $score1 = calculateHandValue($person1["cards"]);
+            $score2 = calculateHandValue($person2["cards"]);
+            $score3 = calculateHandValue($person3["cards"]);
+            $score4 = calculateHandValue($person4["cards"]);
+            displayWinner($score1, $score2, $score3, $score4);
+            
+            
+            /*
+            if ($score1 > $score2 && $score1 > $score3 && $score1 > $score4) {
+                if ($score1 <= 42) { // make sure player does not have a score greater than 42
+                    echo $person1["name"]. " wins!";
+                    //echo $score1. " wins";
+                }
+            } else if ($score2 > $score1 && $score2 > $score3 && $score2 > $score4) {
+                if ($score2 <= 42) { // make sure player does not have a score greater than 42
+                    echo $person2["name"]. " wins!";
+                    //echo $score2. " wins";
+                }
+            } else if ($score3 > $score1 && $score3 > $score2 && $score3 > $score4) {
+                if ($score3 <= 42) { // make sure player does not have a score greater than 42
+                    echo $person3["name"]. " wins!";
+                    //echo $score3. " wins";
+                }
+            } else if ($score4 > $score1 && $score4 > $score2 && $score4 > $score3) {
+                if ($score4 <= 42) { // make sure player does not have a score greater than 42
+                    echo $person4["name"]. " wins!";
+                    //echo $score4. " wins";
+                }
+                    
+            }
+         
+            */
+            
+            function displayWinner($score1, $score2, $score3, $score4) {
+                    
+                if ($score1 > $score2 && $score1 > $score3 && $score1 > $score4) {
+                    if ($score1 <= 42) { // make sure player does not have a score greater than 42
+                        echo $person1["name"]. " wins!";
+                        //echo $score1. " wins";
+                    }
+                } else if ($score2 > $score1 && $score2 > $score3 && $score2 > $score4) {
+                    if ($score2 <= 42) { // make sure player does not have a score greater than 42
+                        echo $person2["name"]. " wins!";
+                        //echo $score2. " wins";
+                    }
+                } else if ($score3 > $score1 && $score3 > $score2 && $score3 > $score4) {
+                    if ($score3 <= 42) { // make sure player does not have a score greater than 42
+                        echo $person3["name"]. " wins!";
+                        //echo $score3. " wins";
+                    }
+                } else if ($score4 > $score1 && $score4 > $score2 && $score4 > $score3) {
+                    if ($score4 <= 42) { // make sure player does not have a score greater than 42
+                        echo $person4["name"]. " wins!";
+                        //echo $score4. " wins";
+                    }
+                    
+                }
+            }
+                   
+                /*    
+                if ($person1["num"] > $person2["num"] && $person1["num"] > $person3["num"] && $person1["num"] > $person4["num"]) {
+                    if ($person1["num"] <= 42) { // make sure player does not have a score greater than 42
+                        echo $person1["name"]. " wins!";
+                    }
+                } else if ($person2["num"] > $person1["num"] && $person2["num"]  > $person3["num"] && $person2["num"] > $person4["num"]) {                       
+                    if ($person2["num"] <= 42) {
+                        echo $person2["name"]. " wins!";
+                    }
+                } else if ($person3["num"] > $person1["num"] && $person3["num"] > $person2["num"] && $person3["num"] > $person4["num"]) {
+                    if ($person3["num"] <= 42) {
+                        echo $person3["name"]. " wins!";
+                    }
+                } else if ($person4["num"] > $person1["num"] && $person4["num"] > $person2["num"] && $person4["num"] > $person3["num"]){
+                    if ($person4["num"] <= 42) {
+                        echo $person4["name"]. " wins!";
+                    }
+                }
+            }
+            */
             
             
             
