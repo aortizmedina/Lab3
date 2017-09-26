@@ -7,13 +7,42 @@ body {
 
 h1 {
     font-size: 2.5em;
-    color: silver;
     text-align: center;
-    font-family: 'Wendy One', sans-serif;
 }
 
 #winner {
     font-size: 2.5em;
     color: red;
     text-align: center;
+}
+
+#pic {
+    text-align: left;
+}
+
+#hand {
+    text-align: center;
+}
+
+#score {
+    color: red;
+    font-family: bold;
+    font-size: 2em;
+}
+
+footer {
+    font-size: .6em;
+    text-align: center;
+}
+
+#playAgain {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

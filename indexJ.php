@@ -70,6 +70,7 @@
                 return $hand; 
             }
         
+
             function players() {
                 $playerPic = rand(1, 13); 
                 $playerName = ""; 
@@ -122,15 +123,26 @@
                     'cards' => generateHand($deck)
                 ); 
                 return $profile; 
+
             }
             function displayPerson($person) {
+                echo "<table id='person'>";
+                echo "<tr>";
+                echo "<td id='pic'>";
                 echo "<img src='".$person["imgURL"]."'>"; // show profile pic
                 echo $person["name"];
+                echo "</td>";
                 for($i = 0; $i < count($person["cards"]); $i++) { // iterate through $person's "cards"
+                    echo "<td id='hand'>";
                     $card = $person["cards"][$i];
                     echo "<img src='".$card["imgURL"]."'>"; // construct the imgURL for each card and translate this to HTML 
+                    echo "</td>";
                 }
+                echo "<td id='score'>";
                 echo calculateHandValue($person["cards"]).'<br>';
+                echo "</td>";
+                echo "</tr>";
+                echo "</table>";
             }
             
             function displayWinner() {
@@ -143,31 +155,30 @@
                         $score2 = calculateHandValue($person2["cards"]);
                         $score3 = calculateHandValue($person3["cards"]);
                         $score4 = calculateHandValue($person4["cards"]);
+                        $totalScore = $score1 + $score2 + $score3 + $score4;
                         
                 if ($score1 <= 42 && ($score1 > $score2 || $score2 > 42)  && ($score1 > $score3 || $score3 > 42) && ($score1 > $score4 || $score4 > 42)) 
                     {
-                        echo "<div id='winner'>".$person1["name"]. " wins!"."</div>";
+                    echo "<div id='winner'>".$person1["name"]. " wins ".$totalScore." points!</div>";
                     }
                  else if ($score2 <= 42 && ($score2 > $score1 || $score1 > 42) && ($score2 > $score3 || $score3 > 42)  && ($score2 > $score4 || $score4 > 42)) 
                     {
-                        echo "<div id='winner'>".$person2["name"]. " wins!"."</div>";
+                        echo "<div id='winner'>".$person2["name"]. " wins ".$totalScore." points!</div>";
                     }
                  else if ($score3 <= 42 && ($score3 > $score1 || $score1 > 42) && ($score3 > $score2 || $score2 > 42) && ($score3 > $score4 || $score4 > 42)) 
                     {
-                        echo "<div id='winner'>".$person3["name"]. " wins!"."</div>";
+                        echo "<div id='winner'>".$person3["name"]. " wins ".$totalScore." points!</div>";
                     }
                  else if ($score4 <= 42 && ($score4 > $score1 || $score1 > 42) && ($score4 > $score2 || $score2 > 42) && ($score4 > $score3 || $score3 > 42))
                     {
-                        echo "<div id='winner'>".$person4["name"]. " wins!"."</div>";
+                        echo "<div id='winner'>".$person4["name"]. " wins ".$totalScore." points!</div>";
                     }
                  else if($score1 > 42 && $score2 > 42 && $score3 > 42 && $score4 > 42)
                     {
                         echo "<div id='winner'>"."No Winners This Round!"."</div>";
-                    }
-                    
                 }
                 
-                
+            }    
                 
             $deck = generateDeck(); 
             
@@ -178,12 +189,13 @@
             
        
             displayWinner();
-            
-            
-            
-            
         ?>
-        
-        
+        <form id='playAgain'>
+            <input type="submit" value="Play Again!" />
+        </form>
+         <footer>
+			<hr>
+			For Academic Purposes Only! CST 336 Internet Programming. 2017&copy; Arnold, Diesh, Ortiz Medina, Welch<br />
+		</footer>
     </body>
 </html>
