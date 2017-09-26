@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-      <head>
-		<meta charset="utf-8" />
-		<title> SilverJack </title>
-		<link href="css/styles.css" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
-	</head>
-    <body>
-        <h1>SILVERJACK</h1>
-        <?php 
+<?php 
             global $deck;
             global $person1;
             global $person2;
@@ -180,7 +170,21 @@
                 
             }    
                 
-            $deck = generateDeck(); 
+            
+        ?>
+
+<!DOCTYPE html>
+<html>
+      <head>
+		<meta charset="utf-8" />
+		<title> SilverJack </title>
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Wendy+One" rel="stylesheet">
+	</head>
+    <body>
+        <h1>SILVERJACK</h1>
+        <?php
+        $deck = generateDeck(); 
             
             for($i = 1; $i < 5; $i++) {
                 ${"person" . $i} =players();
@@ -189,7 +193,7 @@
             
        
             displayWinner();
-        ?>
+            ?>
         <form id='playAgain'>
             <input type="submit" value="Play Again!" />
         </form>

@@ -8,6 +8,8 @@ body {
 h1 {
     font-size: 2.5em;
     text-align: center;
+    color: silver;
+    top:0;
 }
 
 #winner {
